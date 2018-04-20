@@ -31,7 +31,8 @@ def main():
     print title,' by ',author
     print lyrics
     file.close()
-    q=find_str(s,'[V]')
+    seek=lyrics.lower()
+    q=find_str(seek,'[v3')
     print q
 
 def getText(Tag,s):
@@ -44,15 +45,19 @@ def getText(Tag,s):
 
 def find_str(s, char):
     index = 0
-
-    if char in s:
-        c = char[0]
-        for ch in s:
-            if ch == c:
-                if s[index:index+len(char)] == char:
-                    return index
-
-            index += 1
+#find the character wether lowecase or uppercase
+    while True:
+        last_found = -1
+        if char in s:
+            c = char[0]
+            for ch in s:
+                if ch == c:
+                    if s[index:index+len(char)] == char:
+                        last_found = last_found + 1
+                        return index
+                index += 1
+            if last_found == -1:  
+                break  # All occurrences have been found
 
     return -1
 
