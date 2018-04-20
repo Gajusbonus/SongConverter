@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-# Maakt van een OpenSong-bestand Chrodpro-bestand
+# convert an OpenSong-file to a Chrodpro-file
 from xml.etree import ElementTree as ET
 import argparse
 import re						#regular expressions
@@ -9,7 +9,7 @@ import xml.dom.minidom as minidom
 
 def get_args():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--verbose", "-v", help="Voor meer gedetaileerde uitvoer", action="store_true")
+    parser.add_argument("--verbose", "-v", help="For more detailed output", action="store_true")
     parser.add_argument('filename')
     parser.parse_args()
     args = parser.parse_args()
